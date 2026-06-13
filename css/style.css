@@ -1,4 +1,12 @@
 /* Общие настройки */
+*, 
+*::before, 
+*::after 
+    {
+        box-sizing: border-box;
+    }
+
+
 body {
     margin: 0;
     padding: 0;
@@ -11,6 +19,14 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
 }
+
+p {
+    margin: 0; /* Полностью убирает стандартные отступы сверху и снизу */
+    margin-bottom: 15px; /* Задает предсказуемый отступ только снизу */
+    font-size: 16px; /* Меняет размер шрифта */
+    line-height: 1.5; /* Увеличивает межстрочный интервал для читаемости */
+}
+
 
 /* Оболочка на 1920px */
 .content-wrapper {
@@ -119,7 +135,7 @@ body {
 /* Цвета букв */
 .char-g { color: #55ff55; } .char-l { color: #ff55ff; } .char-a { color: #55ffff; } .char-v { color: #5555ff; }
 .char-n { color: #ffff55; } .char-aa { color: #55ffff; } .char-s { color: #ffffff; } .char-t { color: #55ff55; }
-.char-r { color: #aaaaaa; } .char-aaa { color: #ff5555; } .char-nn { color: #ff55ff; } .char-i { color: #5555ff; }
+.char-r { color: #e92929; } .char-aaa { color: #ff5555; } .char-nn { color: #ff55ff; } .char-i { color: #5555ff; }
 .char-c { color: #ff55ff; } .char-aaaa { color: #aa00aa; }
 
 /* Привет!!! */
@@ -210,4 +226,378 @@ body {
     color: #ffffff;
     font-size: 28px;
     line-height: 1.8;
+}
+
+
+
+
+/* players */
+
+
+
+.title-play { 
+    text-align: center;
+}
+
+.block-players { 
+    max-width: 1716px;
+    display: flex;
+    padding-top: 50px;
+    height: 740px;
+    margin-bottom: 50px;
+}
+
+
+.left-block { 
+    width: 1100px;
+    border: #ffcc00 solid 10px;
+}
+
+
+.right-block {
+    width: 400px;
+    border: #ffcc00 solid 10px;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.top-block { 
+    background-color: #ffcc00;
+    width: 100%;
+    height: 100px;
+}
+
+.title-players { 
+    text-align: center;
+    padding-top: 10px;
+    font-size: 50px;
+    color: #000;
+
+}
+
+/* Контейнер для центрирования модельки */
+.mc-player-full {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transform: scale(15); /* Увеличиваем модельку в 5 раз */
+    image-rendering: pixelated; /* Оставляем пиксели чёткими */
+}
+
+/* Общие стили для всех частей тела */
+.mc-head, .mc-body, .mc-arm-left, .mc-arm-right, .mc-leg-left, .mc-leg-right {
+    background: url('../img/pavel_skin.png') no-repeat;
+}
+
+/* 1. Голова (Размер в игре 8x8 пикселей) */
+.mc-head {
+    width: 8px;
+    height: 8px;
+    background-position: -8px -8px; /* Лицо */
+    margin-bottom: 0px;
+}
+
+/* Блок для выстраивания рук и торса в один ряд */
+.mc-middle-part {
+    display: flex;
+    height: 12px; /* Высота торса и рук */
+}
+
+/* 2. Торс / Куртка (Размер 8x12 пикселей) */
+.mc-body {
+    width: 8px;
+    height: 12px;
+    background-position: -20px -20px; /* Передняя часть куртки */
+}
+
+/* 3. Левая рука (Размер 4x12 пикселей) */
+.mc-arm-left {
+    width: 4px;
+    height: 12px;
+    background-position: -44px -20px; /* Левая рука */
+}
+
+/* 4. Правая рука (Размер 4x12 пикселей) */
+.mc-arm-right {
+    width: 4px;
+    height: 12px;
+    background-position: -44px -20px; /* Дублируем текстуру или ставим правую */
+}
+
+/* Блок для ног */
+.mc-legs-part {
+    display: flex;
+    height: 12px; /* Высота ног */
+}
+
+/* 5. Левая нога / Штаны и обувь (Размер 4x12 пикселей) */
+.mc-leg-left {
+    width: 4px;
+    height: 12px;
+    background-position: -4px -20px; /* Левая нога */
+}
+
+/* 6. Правая нога / Штаны и обувь (Размер 4x12 пикселей) */
+.mc-leg-right {
+    width: 4px;
+    height: 12px;
+    background-position: -4px -20px;
+}
+
+
+/* Контейнер для кирки и текста статистики */
+.text-blcok {
+    padding-left: 50px;  /* Небольшой отступ от левого края жёлтой рамки */
+    margin-top: 30px;    /* Отступ сверху от блока с ником */
+}
+
+/* Настройка самой анимированной кирки */
+.text-blcok img {
+    width: 100px;         /* Аккуратный, компактный размер */
+    height: 100px;
+    object-fit: contain;
+    image-rendering: pixelated; /* Жёстко сохраняет пиксели Майнкрафта без мыла и размытия */
+}
+
+/* Настройка текста внутри этого блока */
+.text-blcok p {
+    align-items: center;
+    font-size: 30px;    
+    color: #ffffff;
+    display: flex;
+    gap: 50px;
+}
+
+.block-btn-text {
+    display: flex;
+    align-items: center;       /* Выравниваем кнопку и текст строго по центру высоты */
+    justify-content: space-between; /* Кнопка прижмётся влево, текст — вправо */
+    width: 100%;               /* Занимает всю ширину родительского блока */
+    padding: 0 50px;           /* Одинаковые аккуратные отступы слева и справа, чтобы не липло к рамке */
+    margin-top: 30px;          /* Отступ сверху от блока со статистикой */
+    box-sizing: border-box;    /* Чтобы отступы не расширяли блок наружу */
+}
+
+.btn-more-info { 
+    padding: 0; 
+}
+
+.more-btn { 
+    background-color: #e6e600;
+    color: #000000;
+    border: 4px solid #000000;
+    padding: 12px 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    box-shadow: inset -4px -4px 0px #888800, inset 4px 4px 0px #ffff66;
+    position: relative;
+    top: 0;
+}
+
+.more-btn:hover {
+    background-color: #ffff33;
+}
+
+/* Эффект клика (кнопка вдавливается, тени меняются местами) */
+.more-btn:active {
+    top: 4px;
+    box-shadow: inset 4px 4px 0px #888800, inset -4px -4px 0px #ffff66;
+}
+
+.text-players-oskar { 
+    display: flex;
+    align-items: center;       /* Центрируем тотем относительно текста по вертикали */
+    gap: 10px;                 /* Расстояние между текстом и тотемом */
+    color: #ffff55;
+    font-size: 20px;           /* Чуть-чуть уменьшили шрифт, чтобы длинная строка помещалась */
+    margin: 0;                 /* Убираем стандартные отступы браузера */
+    text-align: right;
+    white-space: nowrap;       /* Запрещаем тексту криво переноситься на новую строку */
+}
+.oscar-size { 
+    width: 60px;         
+    height: 60px;
+    object-fit: contain;
+    image-rendering: pixelated; 
+}
+
+
+.oskar-size { 
+    width: 60px;         /* Аккуратный, компактный размер */
+    height: 60px;
+    object-fit: contain;
+    image-rendering: pixelated; 
+}
+
+
+/* oskarpage */
+
+    .content-wrapper-oskar { 
+        width: 1000px;
+        z-index: 2;
+    }
+    /* Контейнер групп номинаций */
+    .oscar-grid {
+        display: block;
+        width: 100%;
+        }
+
+        /* Блок одной номинации */
+        .oscar-card {
+            background-color: #111111;
+            border: #ffcc00 solid 8px;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        /* Желтая плашка-заголовок группы */
+        .oscar-header {
+            background-color: #ffcc00;
+            padding: 15px 20px;
+            margin: 0;
+        }
+
+        .oscar-title {
+            color: #000000;
+            font-size: 13px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        /* Внутренний контент номинации */
+        .oscar-content {
+            padding: 20px;
+        }
+
+        /* Ряд игрока-номинанта */
+        .nominee-row {
+            display: table;
+            width: 100%;
+            margin-bottom: 12px;
+            padding: 12px;
+            background-color: #161616;
+            border: transparent solid 2px;
+        }
+
+        .nominee-row:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ПОБЕДИТЕЛЬ: Выделяется золотой рамкой */
+        .nominee-row.winner {
+            border: #ffcc00 dashed 2px;
+            background-color: #1d1a10;
+        }
+
+        .nominee-cell {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        /* Бокс для иконки */
+        .nominee-icon-box {
+            width: 55px;
+        }
+
+        /* Твоя аккуратная анимированная иконка */
+        .nominee-icon {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+            image-rendering: pixelated;
+        }
+
+        /* Описание */
+        .nominee-info {
+            padding-left: 10px;
+        }
+
+        .player-name {
+            font-size: 12px;
+            color: #ffffff;
+            margin: 0 0 6px 0;
+        }
+
+        /* Ник победителя горит желтым */
+        .nominee-row.winner .player-name {
+            color: #ffcc00;
+        }
+
+        .build-name {
+            font-size: 9px;
+            color: #888888;
+            margin: 0;
+        }
+
+        /* Правая колонка: Очки / Статистика номинации */
+        .nominee-metric {
+            text-align: right;
+            font-size: 10px;
+            color: #2e71f3; /* Твой синий цвет */
+        }
+
+        .nominee-row.winner .nominee-metric {
+            color: #ffcc00;
+        }
+
+        /* Метка победителя */
+        .winner-tag {
+            font-size: 8px;
+            color: #ffcc00;
+            margin-top: 5px;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+.nav-menu-oskar {
+    display: grid;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    width: 400px;
+}
+
+
+/* Кнопки с эффектом нажатия из Майнкрафта */
+.nav-btn-oskar {
+    background-color: #e6e600;
+    color: #000000;
+    border: 4px solid #000000;
+    padding: 12px 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: inset -4px -4px 0px #888800, inset 4px 4px 0px #ffff66;
+    position: relative;
+    top: 0;
+}
+
+.nav-btn:hover {
+    background-color: #ffff33;
+}
+
+/* Эффект клика (кнопка вдавливается, тени меняются местами) */
+.nav-btn:active {
+    top: 4px;
+    box-shadow: inset 4px 4px 0px #888800, inset -4px -4px 0px #ffff66;
+}
+
+
+
+
+.oskar-page-url { 
+    padding-top: 100px;
+    padding-bottom: 100px;
+    font-size: 64px;
+   
+}
+
+.oskar-page-url a { 
+    text-decoration: none;
 }
