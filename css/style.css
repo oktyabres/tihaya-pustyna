@@ -290,60 +290,98 @@ p {
     image-rendering: pixelated; /* Оставляем пиксели чёткими */
 }
 
-/* Общие стили для всех частей тела */
-.mc-head, .mc-body, .mc-arm-left, .mc-arm-right, .mc-leg-left, .mc-leg-right {
-    background: url('../img/pavel_skin.png') no-repeat;
+/* ==========================================================================
+   УНИКАЛЬНЫЕ СКИНЫ ДЛЯ КАЖДОГО ПЕРСОНАЖА (ИСПРАВЛЕННЫЙ)
+   ========================================================================== */
+
+/* 1. Скин для OffPavel */
+.skin-offpavel .mc-head, .skin-offpavel .mc-body, .skin-offpavel .mc-arm-left, 
+.skin-offpavel .mc-arm-right, .skin-offpavel .mc-leg-left, .skin-offpavel .mc-leg-right {
+    background-image: url('../img/adol.png');
 }
 
-/* 1. Голова (Размер в игре 8x8 пикселей) */
+/* 2. Скин для Coffiyok */
+.skin-coffiyok .mc-head, .skin-coffiyok .mc-body, .skin-coffiyok .mc-arm-left, 
+.skin-coffiyok .mc-arm-right, .skin-coffiyok .mc-leg-left, .skin-coffiyok .mc-leg-right {
+    background-image: url('../img/grassNoob.png');
+}
+
+/* 3. Скин для SlavaLion */
+.skin-slavalion .mc-head, .skin-slavalion .mc-body, .skin-slavalion .mc-arm-left, 
+.skin-slavalion .mc-arm-right, .skin-slavalion .mc-leg-left, .skin-slavalion .mc-leg-right {
+    background-image: url('../img/noob.png');
+}
+
+/* 4. Скин для Amil */
+.skin-amil .mc-head, .skin-amil .mc-body, .skin-amil .mc-arm-left, 
+.skin-amil .mc-arm-right, .skin-amil .mc-leg-left, .skin-amil .mc-leg-right {
+    background-image: url('../img/noob.png');
+}
+
+/* 5. Скин для evgeniy */
+.skin-evgeniy .mc-head, .skin-evgeniy .mc-body, .skin-evgeniy .mc-arm-left, 
+.skin-evgeniy .mc-arm-right, .skin-evgeniy .mc-leg-left, .skin-evgeniy .mc-leg-right {
+    background-image: url('../img/noob.png');
+}
+
+/* ==========================================================================
+   ОБЩАЯ АНАТОМИЯ МОДЕЛЬКИ (ВЫРАВНИВАНИЕ ТЕКСТУРЫ СТИЛЯ 64х64)
+   ========================================================================== */
+
+.mc-head, .mc-body, .mc-arm-left, .mc-arm-right, .mc-leg-left, .mc-leg-right {
+    background-repeat: no-repeat;
+    background-size: 64px 64px; /* Жёстко масштабируем сетку скина */
+}
+
+/* 1. Голова (Лицо: x=8, y=8, размер 8x8) */
 .mc-head {
     width: 8px;
     height: 8px;
-    background-position: -8px -8px; /* Лицо */
+    background-position: -8px -8px; 
     margin-bottom: 0px;
 }
 
 /* Блок для выстраивания рук и торса в один ряд */
 .mc-middle-part {
     display: flex;
-    height: 12px; /* Высота торса и рук */
+    height: 12px;
 }
 
-/* 2. Торс / Куртка (Размер 8x12 пикселей) */
+/* 2. Торс (Грудь: x=20, y=20, размер 8x12) */
 .mc-body {
     width: 8px;
     height: 12px;
-    background-position: -20px -20px; /* Передняя часть куртки */
+    background-position: -20px -20px; 
 }
 
-/* 3. Левая рука (Размер 4x12 пикселей) */
+/* 3. Левая рука (Передняя часть: x=44, y=20, размер 4x12) */
 .mc-arm-left {
     width: 4px;
     height: 12px;
-    background-position: -44px -20px; /* Левая рука */
+    background-position: -44px -20px; 
 }
 
-/* 4. Правая рука (Размер 4x12 пикселей) */
+/* 4. Правая рука (Для классических скинов координаты те же самые, x=44, y=20) */
 .mc-arm-right {
     width: 4px;
     height: 12px;
-    background-position: -44px -20px; /* Дублируем текстуру или ставим правую */
+    background-position: -44px -20px; 
 }
 
 /* Блок для ног */
 .mc-legs-part {
     display: flex;
-    height: 12px; /* Высота ног */
+    height: 12px;
 }
 
-/* 5. Левая нога / Штаны и обувь (Размер 4x12 пикселей) */
+/* 5. Левая нога (Передняя часть: x=4, y=20, размер 4x12) */
 .mc-leg-left {
     width: 4px;
     height: 12px;
-    background-position: -4px -20px; /* Левая нога */
+    background-position: -4px -20px; 
 }
 
-/* 6. Правая нога / Штаны и обувь (Размер 4x12 пикселей) */
+/* 6. Правая нога (Координаты те же, x=4, y=20) */
 .mc-leg-right {
     width: 4px;
     height: 12px;
@@ -598,6 +636,347 @@ p {
    
 }
 
-.oskar-page-url a { 
+
+
+
+/* ==========================================================================
+   ИСТОРИЯ МИРА: ВЫРАВНИВАНИЕ И ЦВЕТА ПО ЦЕНТРУ
+   ========================================================================== */
+
+/* Контейнер для текста */
+.history-text {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* Весь текст строго по центру */
+    
+}
+
+/* Главный зелёный заголовок */
+.title-green {
+    color: #55ff55;
+    font-size: 40px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* Основной текстовый поток */
+.story-flow-container p {
+    color: #ffffff;
+    font-size: 25px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Подсветка слов внутри текста */
+.color-red { color: #ff5555; }
+.color-yellow { color: #ffff55; }
+.color-teal { color: #55ffff; }
+.color-pink { color: #ff55ff; }
+
+/* Секция заголовка "ТИХАЯ ПУСТЫНЯ" с аватаркой */
+.current-world-section {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* ТИХАЯ ПУСТЫНЯ (Светло-зелёный / Голубоватый) */
+.title-multicolor {
+    color: #55ff55;
+    font-size: 32px;
+    margin: 0;
+    text-shadow: 2px 2px 0px #005500;
+}
+
+/* Аватарка справа от заголовка */
+.story-avatar {
+    position: absolute;
+    right: 10px;
+    bottom: -10px;
+    width: 64px;
+    height: 64px;
+    image-rendering: pixelated;
+    border: 2px solid #ffffff;
+}
+
+/* Список первопроходцев */
+.pioneers-intro {
+    margin-top: 30px;
+    color: #ffffff;
+}
+
+.pioneers-block p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Цвета ников первопроходцев */
+.p-pavel { color: #ff5555; }
+.p-dmitry { color: #55ff55; }
+.p-amil { color: #ffff55; }
+.p-slava { color: #5555ff; }
+
+
+
+/* ==========================================================================
+   СТРАНИЦА: ПОЛЕЗНАЯ ИНФОРМАЦИЯ
+   ========================================================================== */
+
+/* Общий контейнер блоков */
+.info-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Зеленый главный заголовок */
+.info-main-title {
+    color: #55ff55;
+    font-size: 40px;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px #000000;
+}
+
+/* Чёрные блоки-плашки */
+.info-box {
+    background-color: #000000;
+    border: 4px solid #1a1a1a; /* Тёмная пиксельная рамка */
+    padding: 25px 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 0px #000000;
+}
+
+/* Заголовки внутри блоков */
+.info-box-title {
+    color: #ffffff;
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Обычный текст внутри блоков */
+.info-box-text {
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 1.8;
+    margin: 0;
+    text-align: center;
+}
+
+/* Крупные цифры координат из первого блока */
+.coordinates-large p {
+    color: #ffffff;
+    font-size: 22px;
+    margin: 12px 0;
+    letter-spacing: 1px;
+}
+
+/* Список координат во втором блоке */
+.coordinates-list p {
+    color: #aaaaaa;
+    font-size: 14px;
+    margin: 8px 0;
+}
+
+/* Белая майнкрафт-кнопка */
+.info-white-btn {
+    display: inline-block;
+    width: 85%;
+    background-color: #ffffff;
+    color: #000000;
+    border: 3px solid #000000;
+    padding: 10px 0;
+    margin-top: 20px;
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: inset -3px -3px 0px #888888;
+    cursor: pointer;
+}
+
+.info-white-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.info-white-btn:active {
+    box-shadow: inset 3px 3px 0px #888888;
+}
+
+/* Ссылки на соцсети */
+.info-links-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.info-link-item {
+    color: #55ffff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.info-link-item:hover {
+    text-decoration: underline;
+}
+
+/* Подсветка активной кнопки меню */
+.active-nav {
+    background-color: #55ff55 !important;
+    color: #000000 !important;
+}
+
+
+/* ==========================================================================
+   СТРАНИЦА: ЛУКБУК (СТИЛЬ И МЕГА-ОТСТУПЫ)
+   ========================================================================== */
+
+/* Общий контейнер лукбука */
+.lookbook-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Главный заголовок страницы */
+.lookbook-main-title {
+    color: #55ff55;
+    font-size: 26px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px #000000;
+}
+
+/* Отдельный блок под каждый лук с огромными отступами */
+.lookbook-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Отступы сверху и снизу по 350px на твое усмотрение */
+    margin-top: 160px; 
+    margin-bottom: 160px;
+}
+
+/* Первый элемент подожмем повыше, чтобы не было гигантской пустоты в самом верху */
+.lookbook-item:first-of-type {
+    margin-top: 100px;
+}
+
+/* Рамка вокруг картинки */
+.lookbook-image-wrapper {
+    background-color: #1a1a1a;
+    border: 5px solid #ffffff; /* Белая пиксельная рамка */
+    padding: 10px;
+    box-shadow: 6px 6px 0px #000000;
+    max-width: 100%;
+    display: inline-block;
+}
+
+/* Стилизация самих скриншотов/картинок внутри рамки */
+.lookbook-image-wrapper img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    image-rendering: pixelated; /* Сохраняем пиксельность картинок майна */
+    max-height: 500px; /* Ограничение по высоте, чтобы не ломался экран */
+}
+
+/* Подпись строго под картинкой */
+.lookbook-caption {
+    color: #ffff55; /* Майнкрафтовский желтый цвет */
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 20px; /* Отступ текста от рамки */
+    margin-bottom: 0;
+    max-width: 90%;
+    text-shadow: 2px 2px 0px #000000;
+}
+
+/* Подсветка активной кнопки меню */
+.active-nav {
+    background-color: #55ff55 !important;
+    color: #000000 !important;
+}
+
+
+
+.text-title-kraft { 
+    text-align: center;
+    font-size: 40px;
+    color: lightblue;
+}
+
+/* ==========================================================================
+   КОНТЕЙНЕР И РАМКА ДЛЯ КРАФТОВ (БЕЗ ИЗМЕНЕНИЯ РАЗМЕРА КАРТИНКИ)
+   ========================================================================== */
+
+/* Центрирование всей конструкции на странице */
+.craft-frame-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Сама рамка вокруг скриншота */
+.craft-image-border {
+    background-color: #1a1a1a; /* Тёмный фон внутри рамки */
+    border: 5px solid #ffffff;  /* Белая пиксельная обводка */
+    padding: 8px;               /* Внутренний отступ от рамки до крафта */
+    box-shadow: 6px 6px 0px #000000; /* Чёрная тень в стиле интерфейса */
+    
+    /* Эти два свойства не дают рамке растягиваться шире самой картинки */
+    width: max-content;
+    display: block; 
+}
+
+/* Настройки самой картинки */
+.craft-image-border img {
+    display: block;
+    width: auto;  /* Отменяем автоматическое растягивание */
+    height: auto; /* Сохраняем оригинальную высоту */
+    max-width: 100%; /* Защита от вылета за экраны мобилок */
+    
+    /* Сохраняет чёткие пиксели майнкрафта при отображении */
+    image-rendering: pixelated; 
+    image-rendering: crisp-edges;
+}
+
+/* Стили для подписи под крафтом */
+.craft-description {
+    color: #ffff55; /* Жёлтый майнкрафт-цвет */
+    font-size: 14px;
+    margin-top: 15px;
+    text-shadow: 2px 2px 0px #000000;
+    text-align: center;
+}
+
+/* Ссылка возврата (на всякий случай подправим отступ) */
+.aaa {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #55ffff;
     text-decoration: none;
 }
+.aaa:hover {
+    text-decoration: underline;
+}
+
